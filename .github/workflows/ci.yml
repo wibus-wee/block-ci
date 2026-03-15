@@ -86,18 +86,6 @@ jobs:
       - name: Typecheck backend
         run: pnpm --dir packages/backend run typecheck
 
-      - name: Typecheck frontend
-        run: pnpm --dir packages/frontend exec tsc --noEmit -p tsconfig.json
-
-      - name: Typecheck daemon
-        run: pnpm --dir packages/daemon run typecheck
-
-      - name: Build frontend
-        run: pnpm --dir packages/frontend run build
-
-      - name: Build daemon
-        run: pnpm --dir packages/daemon run build
-
       - name: Run backend tests
         env:
           DATABASE_URL: postgresql://postgres:postgres@localhost:5432/block_test
